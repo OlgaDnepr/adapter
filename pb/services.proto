@@ -1,0 +1,30 @@
+
+syntax = "proto3";
+
+package pb;
+
+enum MarcoPolo {
+    Marco = 0;
+    Polo = 1;
+}
+
+enum MonkeyFollow {
+    Monkey = 0;
+    Follow = 1;
+}
+
+message Request {
+    MarcoPolo message=1;
+}
+
+message Reply {
+    MonkeyFollow message=1;
+}
+
+service Adapter {
+    rpc Get (Request) returns (Request) {}
+}
+
+service Server {
+    rpc Get (Reply) returns (Reply) {}
+}

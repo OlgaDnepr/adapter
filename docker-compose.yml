@@ -1,0 +1,33 @@
+version: '3'
+services:
+  client:
+    container_name: client
+    image: golang:1.11.3-alpine
+    volumes:
+      - .:/go/src/github.com/OlgaDnepr/adapter
+    working_dir: /go/src/github.com/OlgaDnepr/adapter/client
+    command: go run main.go --marco=true
+    depends_on:
+      - adapter
+
+  adapter:
+    container_name: adapter
+    image: golang:1.11.3-alpine
+    volumes:
+      - .:/go/src/github.com/OlgaDnepr/adapter
+    working_dir: /go/src/github.com/OlgaDnepr/adapter
+    command: go run main.go
+    ports:
+      - "50001:50001"
+    depends_on:
+      - server
+
+  server:
+    container_name: server
+    image: golang:1.11.3-alpine
+    volumes:
+      - .:/go/src/github.com/OlgaDnepr/adapter
+    working_dir: /go/src/github.com/OlgaDnepr/adapter/server
+    command: go run main.go
+    ports:
+      - "50002:50002"

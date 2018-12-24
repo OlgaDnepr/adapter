@@ -1,5 +1,6 @@
 .idea
 *.xml
+*.out
 *_gen.go
 *.pb.go
 **/vendor

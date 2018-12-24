@@ -1,0 +1,16 @@
+package: github.com/OlgaDnepr/adapter
+import:
+  - package: github.com/golang/protobuf
+    version: 1d3f30b51784bec5aad268e59fd3c2fc1c2fe73f
+    subpackages:
+      - proto
+  - package: github.com/pkg/errors
+  - package: golang.org/x/net
+    subpackages:
+      - context
+  - package: google.golang.org/grpc
+    version: 30155c0ba1897b0168a32e3d4a587eebb33524ef
+  - package: github.com/onsi/ginkgo
+  - package: github.com/onsi/gomega
+  - package: github.com/golang/mock
+  - package: gopkg.in/yaml.v2
